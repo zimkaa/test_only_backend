@@ -1,0 +1,21 @@
+{
+  "name": "FirstTest",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13",
+  "features": {
+  },
+  "onCreateCommand": "sudo chsh -s /usr/bin/zsh $USER",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+      "zsh": {
+        "path": "/usr/bin/zsh"
+      }
+    }
+  },
+  "forwardPorts": [
+    8000
+  ],
+  "remoteEnv": {
+    "REMOTE_CONTAINERS": "true"
+  }
+}
