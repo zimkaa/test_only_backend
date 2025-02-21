@@ -7,10 +7,11 @@ from litestar.config.cors import CORSConfig
 from litestar.connection import Request
 from litestar.response import Response
 from pydantic import BaseModel, ValidationError, field_validator
+from datetime import date
 
 
 class SubmitRequest(BaseModel):
-    date: str
+    date: date
     first_name: str
     last_name: str
 
@@ -131,7 +132,7 @@ def prepare_data(data: dict[str, str]) -> dict[str, str]:
 
     response_data = [
         {
-            "date": form_data.date,
+            "date": form_data.date.strftime("%Y-%m-%d"),
             "name": f"{form_data.first_name} {form_data.last_name}",
         }
         for _ in range(random.randint(2, 5))
